@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Farmer Registration Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://wallpaperaccess.com/full/791484.jpg');
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      width: 50%;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #1e88e5;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #1e88e5;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    button {
+      background-color: #d32f2f;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #b71c1c;
+    }
+
+    p {
+      margin-bottom: 5px;
+      color: #333;
+    }
+  
+    @media (max-width: 600px) {
+      .container {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Farmer Registration Form</h1>
+    <form action="/" method="POST" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+      </div>
+      <div class="form-group">
+        <label for="cropname">Crop Name:</label>
+        <input type="text" id="cropname" name="cropname" required>
+      </div>
+      <div class="form-group">
+        <label for="cropdisease">Crop Disease:</label>
+        <input type="text" id="cropdisease" name="cropdisease" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">--Please select--</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var email = document.getElementById('email').value;
+      var phoneNumber = document.getElementById('phoneNumber').value;
+      var fromLocation = document.getElementById('location').value;
+      var toLocation = document.getElementById('cropname').value;
+      var dateOfJourney = document.getElementById('cropdisease').value;
+      var age = document.getElementById('age').value;
+      var gender = document.getElementById('gender').value;
+
+      // Validation rules
+      var nameRegex = /^[A-Za-z]+$/;
+      var locationRegex = /^[A-Za-z\s]+$/;
+      var ageRegex = /^[0-9]+$/;
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var phoneRegex = /^[0-9]{10}$/;
+
+      if (!nameRegex.test(firstName)) {
+        alert('First Name should only contain alphabetic characters.');
+        return false;
+      }
+
+      if (!nameRegex.test(lastName)) {
+        alert('Last Name should only contain alphabetic characters.');
+        return false;
+      }
+
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+
+      if (!phoneRegex.test(phoneNumber)) {
+        alert('Please enter a valid 10-digit phone number.');
+        return false;
+      }
+
+      if (!ageRegex.test(age)) {
+        alert('Please enter a valid age.');
+        return false;
+      }
+
+      // Add more validation rules as needed
+
+      // Return true if the form is valid, otherwise return false
+      return true;
+    }
+  </script>
+</body>
+
+</html>
